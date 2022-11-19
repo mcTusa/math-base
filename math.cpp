@@ -4,74 +4,59 @@
 #include <iostream>
 #define DEG2RAD(a)(a*M_PI/180)
 #define RAD2DEG(a)(a*180/M_PI)
-
-class Float
+int ToInt(float a)
 {
-public:
-	float value;
-
-	Float(float a) { value = a; };
-	Float(int a) { value = a; };
-	Float(double a) { value = a; };
-
-	Float operator=(float a)
+	try
 	{
-		value = a;
-		return *this;
+		return (int)a;
 	}
-	Float operator+=(float a)
+	catch (...)
 	{
-		value += a;
-		return *this;
+		return 0;
 	}
-	Float operator-=(float a)
+}
+int ToInt(double a)
+{
+	try
 	{
-		value -= a;
-		return *this;
+		return (int)a;
 	}
-	Float operator*=(float a)
+	catch (...)
 	{
-		value *= a;
-		return *this;
+		return 0;
 	}
-	Float operator/=(float a)
+}
+int ToInt(char* a)
+{
+	try
 	{
-		value /= a;
-		return *this;
+		return (int)a;
 	}
-	Float operator+(float a)
+	catch (...)
 	{
-		value + a;
-		return *this;
+		return 0;
 	}
-	Float operator-(float a)
+}
+int ToInt(char a)
+{
+	try
 	{
-		value - a;
-		return *this;
+		return (int)a;
 	}
-	Float operator*(float a)
+	catch (...)
 	{
-		value * a;
-		return *this;
+		return 0;
 	}
-	Float operator/(float a)
+}
+int ToInt(std::string a)
+{
+	try
 	{
-		value / a;
-		return *this;
+		int b = std::stoi(a);
+		return b;
 	}
-	bool operator==(float a)
+	catch (...)
 	{
-		if (value == a)
-			return true;
-		else
-			return false;
+		return 0;
 	}
-	operator float() const
-	{
-		return value;
-	}
-	operator double() const
-	{
-		return (double)value;
-	}
-};
+}
