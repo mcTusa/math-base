@@ -6,115 +6,61 @@
 #include <string>
 #define DEG2RAD(a)(a*M_PI/180)
 #define RAD2DEG(a)(a*180/M_PI)
-int ToInt(float a)
+class Vector
 {
-	try
+public:
+	Vector operator+(Vector& v)
 	{
-		return (int)a;
+		return { x + v.x, y + v.y, z + v.z };
 	}
-	catch (...)
+	Vector operator-(Vector& v)
 	{
-		return 0;
+		return { x - v.x, y - v.y, z - v.z };
 	}
+private:
+	float x{ }, y{ }, z{ };
+};
+int ToInt(float a) const noexcept
+{
+	return (int)a;
 }
-int ToInt(double a)
+int ToInt(double a) const noexcept
 {
-	try
-	{
-		return (int)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (int)a;
 }
-int ToInt(char* a)
+int ToInt(char* a) const noexcept
 {
-	try
-	{
-		return (int)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (int)a;
 }
-int ToInt(char a)
+int ToInt(char a) const noexcept
 {
-	try
-	{
-		return (int)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (int)a;
 }
-int ToInt(std::string a)
+int ToInt(std::string a) const noexcept
 {
-	try
-	{
-		int b = std::stoi(a);
-		return b;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	int b = 0;
+	int b = std::stoi(a);
+	return b;
 }
-float ToFloat(int a)
+float ToFloat(int a) const noexcept
 {
-	try
-	{
-		return (float)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (float)a;
 }
-float ToFloat(double a)
+float ToFloat(double a) const noexcept
 {
-	try
-	{
-		return (float)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (float)a;
 }
-float ToFloat(char* a)
+float ToFloat(char* a) const noexcept
 {
-	try
-	{
-		return (float)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (float)a;
 }
-float ToFloat(char a)
+float ToFloat(char a) const noexcept
 {
-	try
-	{
-		return (float)a;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	return (float)a;
 }
-float ToFloat(std::string a)
+float ToFloat(std::string a) const noexcept
 {
-	try
-	{
-		float b = std::stof(a);
-		return b;
-	}
-	catch (...)
-	{
-		return 0;
-	}
+	float b = 0.0f;
+	float b = std::stof(a);
+	return b;
 }
